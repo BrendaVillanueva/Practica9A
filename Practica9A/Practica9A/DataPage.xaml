@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Practica9A.DataPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="LightBlue">
+            <ListView ItemsSource="{Binding Items}"
+             CachingStrategy="RecycleElement"
+             ItemSelected="Handle_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Label Text="Matricula: " Grid.Column="0" Grid.Row="0" BackgroundColor="Yellow"/>
+                                <Label Text="{Binding Matricula}" Grid.Column="1" Grid.Row="0" BackgroundColor="Yellow"/>
+                                <Label Text="Nombre: " Grid.Column="0" Grid.Row="1"/>
+                                <Label Text="{Binding Nombre}" Grid.Column="1" Grid.Row="1"/>
+                                <Label Text="Apellido: " Grid.Column="0" Grid.Row="2"/>
+                                <Label Text="{Binding Apellidos}" Grid.Column="1" Grid.Row="2"/>
+                                <Label Text="Direccion: " Grid.Column="0" Grid.Row="3"/>
+                                <Label Text="{Binding Direccion}" Grid.Column="1" Grid.Row="3"/>
+                                <Label Text="Telefono: " Grid.Column="0" Grid.Row="4"/>
+                                <Label Text="{Binding Telefono}" Grid.Column="1" Grid.Row="4"/>
+                                <Label Text="Carrera: " Grid.Column="0" Grid.Row="5"/>
+                                <Label Text="{Binding Carrera}" Grid.Column="1" Grid.Row="5"/>
+                                <Label Text="Semestre: " Grid.Column="0" Grid.Row="6"/>
+                                <Label Text="{Binding Semestre}" Grid.Column="1" Grid.Row="6"/>
+                                <Label Text="Correo: " Grid.Column="0" Grid.Row="7"/>
+                                <Label Text="{Binding Correo}" Grid.Column="1" Grid.Row="7"/>
+                                <Label Text="GitHub: " Grid.Column="0" Grid.Row="8"/>
+                                <Label Text="{Binding Github}" Grid.Column="1" Grid.Row="8"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Insertar nuevo resgistro" x:Name="Insertar" Clicked="Insertar_Clicked"/>
+            <Button Text="Mostrar Datos Eliminados" x:Name="Button_Mostrar_Datos_Eliminados" Clicked="Button_Mostrar_Datos_Eliminados_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

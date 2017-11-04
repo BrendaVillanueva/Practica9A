@@ -17,6 +17,7 @@ namespace Practica9A
         public ObservableCollection<_13090416> Items { get; set; }
         public static MobileServiceClient cliente;
         public static IMobileServiceTable<_13090416> Tabla;
+        public static MobileServiceUser usuario;
 
         public DataPage()
         {
@@ -56,5 +57,26 @@ namespace Practica9A
             await Navigation.PushAsync(new SelectPage(e.SelectedItem as _13090416));
         }
 
+        private async void Login_Clicked(object sender, EventArgs e)
+        {
+            usuario = await App.Authenticador.Authenticate();
+            if (App.Authenticador != null)
+            {
+                if (usuario != null)
+                {
+                    await DisplayAlert("Usuario Autenticado", usuario.UserId, "Ok");
+
+                    if (usuario == null)//UserId !="Administrador(ID)")
+                    {
+                        Insertar.IsVisible = false;
+                        Insertar.IsEnabled = false;
+                        Button_Mostrar_Datos_Eliminados.IsVisible = false;
+                        Button_Mostrar_Datos_Eliminados.IsEnabled = false;
+                      
+                    }
+                }
+            }
+
+        }
     }
 }

@@ -51,6 +51,7 @@
             </ListView>
             <Button Text="Insertar nuevo resgistro" x:Name="Insertar" Clicked="Insertar_Clicked"/>
             <Button Text="Mostrar Datos Eliminados" x:Name="Button_Mostrar_Datos_Eliminados" Clicked="Button_Mostrar_Datos_Eliminados_Clicked"/>
+            <Button Text=":Iniciar Sesion" x:Name="Login" Clicked="Login_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

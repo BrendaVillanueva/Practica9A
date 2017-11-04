@@ -9,6 +9,14 @@ namespace Practica9A
 {
     public partial class App : Application
     {
+        public static ISQLAzure Authenticador { get; private set; }
+
+        public static void Init (ISQLAzure authenticator)
+        {
+            Authenticador = authenticator;
+        }
+
+
         public App()
         {
             InitializeComponent();

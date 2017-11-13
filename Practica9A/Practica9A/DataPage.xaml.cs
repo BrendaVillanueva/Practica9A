@@ -25,7 +25,7 @@ namespace Practica9A
 
             cliente = new MobileServiceClient(AzureConnection.AzureURL);
             Tabla = cliente.GetTable<_13090416>();
-            LeerTabla();
+            //LeerTabla();
 
 
         }
@@ -43,7 +43,7 @@ namespace Practica9A
         }
 
 
-        public async void LeerTabla()
+        private async void LeerTabla()
         {
             IEnumerable<_13090416> elementos = await Tabla.ToEnumerableAsync();
             Items = new ObservableCollection<_13090416>(elementos);
@@ -57,7 +57,9 @@ namespace Practica9A
             await Navigation.PushAsync(new SelectPage(e.SelectedItem as _13090416));
         }
 
-        private async void Login_Clicked(object sender, EventArgs e)
+
+
+        private async void Login_Clicked(object sender, EventArgs e) //crear metodo Login()
         {
             usuario = await App.Authenticador.Authenticate();
             if (App.Authenticador != null)
@@ -65,18 +67,35 @@ namespace Practica9A
                 if (usuario != null)
                 {
                     await DisplayAlert("Usuario Autenticado", usuario.UserId, "Ok");
+                    LeerTabla();
 
                     if (usuario == null)//UserId !="Administrador(ID)")
                     {
-                        Insertar.IsVisible = false;
-                        Insertar.IsEnabled = false;
-                        Button_Mostrar_Datos_Eliminados.IsVisible = false;
-                        Button_Mostrar_Datos_Eliminados.IsEnabled = false;
-                      
+                        //Insertar.IsVisible = false;
+                        //Insertar.IsEnabled = false;
+
+                        //Button_Mostrar_Datos_Eliminados.IsVisible = false;
+                        //Button_Mostrar_Datos_Eliminados.IsEnabled = false;
+                        
+  
                     }
+
+                
                 }
             }
 
         }
+
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if(usuario != null)
+            {
+                LeerTabla();
+            }
+        }
+
     }
 }

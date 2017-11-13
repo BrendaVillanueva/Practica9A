@@ -23,7 +23,7 @@ namespace Practica9A.iOS
 
             try
             {
-                usuario = await Practica9A.DataPage.cliente.LoginAsync(UIApplication.SharedApplication.KeyWindow.RootViewController, MobileServiceAuthenticationProvider.Facebook, "https://tesh.azurewebsites.net/.auth/login/facebook/callback");
+                usuario = await Practica9A.DataPage.cliente.LoginAsync(UIApplication.SharedApplication.KeyWindow.RootViewController, MobileServiceAuthenticationProvider.MicrosoftAccount, "tesh.azurewebsites.net");
 
                 if(usuario !=null)
                 {

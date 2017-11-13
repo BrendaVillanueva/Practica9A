@@ -23,7 +23,7 @@ namespace Practica9A.Droid
             var message = string.Empty;
             try
             {
-                usuario = await Practica9A.DataPage.cliente.LoginAsync(this, MobileServiceAuthenticationProvider.Facebook, "https://tesh.azurewebsites.net/.auth/login/facebook/callback");
+                usuario = await Practica9A.DataPage.cliente.LoginAsync(this, MobileServiceAuthenticationProvider.MicrosoftAccount, "tesh.azurewebsites.net");
 
                 if(usuario !=null)
                 {

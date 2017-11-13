@@ -17,6 +17,7 @@ namespace Practica9A
         public ObservableCollection<_13090416> Items { get; set; }
         public static MobileServiceClient Cliente;
         public static IMobileServiceTable<_13090416> Tabla;
+        
 
         public DeletePage()
         {

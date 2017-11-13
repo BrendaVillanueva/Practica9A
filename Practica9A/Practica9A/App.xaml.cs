@@ -24,7 +24,7 @@ namespace Practica9A
             MainPage = new NavigationPage(new Practica9A.DataPage());
         }
 
-        protected override void OnStart()
+        protected override void OnStart() //COLOCAR EVENTO DE AUTENTICAR
         {
             // Handle when your app starts
         }

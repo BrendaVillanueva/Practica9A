@@ -18,6 +18,14 @@ namespace Practica9A
         {
             InitializeComponent();
 
+
+            if(DataPage.usuario== null)
+            {
+
+                Button_Insertar.IsEnabled = false;
+            }
+
+
             string[] semestres = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
             Picker_Semestre.ItemsSource = semestres;
             //PICKER CARRERAS

@@ -46,7 +46,7 @@ namespace Practica9A
 
             };
             await DataPage.Tabla.UpdateAsync(datos);
-            await Navigation.PushAsync(new DataPage());
+            await Navigation.PopAsync();
         }
 
         private async void Button_Eliminar_Clicked(object sender, EventArgs e)
@@ -58,7 +58,7 @@ namespace Practica9A
 
             };
             await DataPage.Tabla.DeleteAsync(datos);
-            await Navigation.PushAsync(new DataPage());
+            await Navigation.PopAsync();
 
         }
     }

@@ -6,7 +6,8 @@
         <StackLayout BackgroundColor="LightBlue">
             <ListView ItemsSource="{Binding Items}"
              CachingStrategy="RecycleElement"
-                      ItemSelected="Handle_ItemSelected">
+                      ItemSelected="Handle_ItemSelected"
+                      x:Name="Lista">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

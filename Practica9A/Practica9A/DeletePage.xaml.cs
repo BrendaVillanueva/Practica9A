@@ -15,15 +15,11 @@ namespace Practica9A
     public partial class DeletePage : ContentPage
     {
         public ObservableCollection<_13090416> Items { get; set; }
-        public static MobileServiceClient Cliente;
-        public static IMobileServiceTable<_13090416> Tabla;
-        
+        public MobileServiceUser usuario;
 
-        public DeletePage()
+        public DeletePage(MobileServiceUser user)
         {
-            Cliente = new MobileServiceClient(AzureConnection.AzureURL);
-            Tabla = Cliente.GetTable<_13090416>();
-
+            usuario = user;
             InitializeComponent();
         }
 
@@ -38,10 +34,18 @@ namespace Practica9A
 
         private async void Button_Mostrar_Eliminados_Clicked(object sender, EventArgs e)
         {
-
-            IEnumerable<_13090416> elementos = await Tabla.IncludeDeleted().Where(_13090416 => _13090416.Deleted == true).ToEnumerableAsync();
+            if (usuario != null)
+            { 
+            IEnumerable<_13090416> elementos = await DataPage.Tabla.IncludeDeleted().Where(_13090416 => _13090416.Deleted == true).ToEnumerableAsync();
             Items = new ObservableCollection<_13090416>(elementos);
             BindingContext = this;
+            Lista.ItemsSource = Items;
+
+            }
+            else
+            {
+                await DisplayAlert("ERROR", "ERROR no hay datos de usuario", "ok");
+            }
         }
     }
 }

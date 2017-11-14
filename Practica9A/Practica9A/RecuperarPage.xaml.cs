@@ -30,7 +30,7 @@ namespace Practica9A
 
             };
             await DataPage.Tabla.UndeleteAsync(datos);
-            await Navigation.PushAsync(new DataPage());
+            await Navigation.PopAsync();
         }
     }
 }

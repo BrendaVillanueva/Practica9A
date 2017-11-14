@@ -39,7 +39,8 @@ namespace Practica9A
 
         private void Button_Mostrar_Datos_Eliminados_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new DeletePage());
+            //MobileServiceUser user = sender as MobileServiceUser;
+            Navigation.PushAsync(new DeletePage(usuario));
         }
 
 
@@ -48,6 +49,7 @@ namespace Practica9A
             IEnumerable<_13090416> elementos = await Tabla.ToEnumerableAsync();
             Items = new ObservableCollection<_13090416>(elementos);
             BindingContext = this;
+            Lista.ItemsSource = Items;
         }
 
         async void Handle_ItemSelected(object sender, SelectedItemChangedEventArgs e)
